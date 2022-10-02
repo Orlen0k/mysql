@@ -1,0 +1,27 @@
+1. C:\Users\Админ>mysql
+ERROR 1045 (28000): Access denied for user 'ODBC'@'localhost' (using password: NO)
+
+[mysql]
+user=root
+password=1234
+
+файл создал, имя дал но не работает причину не нашел
+
+
+
+
+2. Создайте базу данных example, разместите в ней таблицу users, состоящую из двух столбцов, числового id и строкового name.
+mysql -u root -p    
+CREATE DATABASE example;
+CREATE DATABASE sample;
+USE example;
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(255) COMMENT 'Имя пользователя');
+exit
+
+3. Создайте дамп базы данных example из предыдущего задания, разверните содержимое дампа в новую базу данных sample.
+
+mysqldump -u root -p example > sample.sql
+mysql -u root -p sample < sample.sql  
+mysql -u root -p
+SHOW DATABASES;
+DESCRIBE sample.users;
